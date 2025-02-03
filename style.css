@@ -1,0 +1,73 @@
+/* General Styling for Registration Page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('traffic\ scene\ with\ ambulances\ moving\ smoothly\ and\ spotlight\ on\ ambulances.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Registration Form Styling */
+.registration-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Form Inputs */
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Buttons */
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Detection Buttons */
+.detection-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#detectBtn {
+    background: #dc3545;
+}
+
+#detectBtn:hover {
+    background: #c82333;
+}
+
+#stopBtn {
+    background: #ffc107;
+}
+
+#stopBtn:hover {
+    background: #e0a800;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const API_BASE_URL = "http://127.0.0.1:5000"; // Backend URL
+
+        async function registerVehicle() {
+            const vehicleNumber = document.getElementById("vehicleNumber").value;
+            const ownerName = document.getElementById("ownerName").value;
+            const vehicleType = document.getElementById("vehicleType").value;
+            const imageUrl = document.getElementById("imageUrl").value;
+
+            const response = await fetch(`${API_BASE_URL}/register`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ vehicleNumber, ownerName, vehicleType, imageUrl })
+            });
+
+            const result = await response.json();
+            alert(result.message);
+        }
+
+        async function startDetection() {
+            const response = await fetch(`${API_BASE_URL}/detect`, { method: "GET" });
+            const result = await response.json();
+            alert(result.message);
+        }
+
+        async function stopDetection() {
+            const response = await fetch(`${API_BASE_URL}/stop_detect`, { method: "GET" });
+            const result = await response.json();
+            alert(result.message);
+        }
+    </script>
+</head>
+<body class="register-page">
+
+    
+    <div class="container">
+        <h2>Vehicle Registration</h2>
+        <div class="form-container">
+            <label>Vehicle Number:</label> 
+            <input type="text" id="vehicleNumber" placeholder="Enter vehicle number"><br><br>
+
+            <label>Owner Name:</label> 
+            <input type="text" id="ownerName" placeholder="Enter owner name"><br><br>
+
+            <label>Vehicle Type:</label> 
+            <input type="text" id="vehicleType" placeholder="Enter vehicle type"><br><br>
+
+            <label>Image URL:</label> 
+            <input type="text" id="imageUrl" placeholder="Enter image URL"><br><br>
+
+            <button onclick="registerVehicle()">Register Vehicle</button>
+        </div>
+
+        <h2>Detection</h2>
+        <div class="button-container">
+            <button onclick="startDetection()">Start Detection</button>
+            <button onclick="stopDetection()">Stop Detection</button>
+        </div>
+    </div>
+</body>
+</html>
